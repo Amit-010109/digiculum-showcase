@@ -37,15 +37,15 @@ const LeadersHero = () => {
       <div className="relative z-10 w-full pl-6 md:pl-16 lg:pl-24">
         <div className="max-w-3xl">
           <h1 className="heading-xl mb-6 animate-fade-in">
-            AI Leadership Readiness Program
+            AI Readiness & Competence Evaluation
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground/80 mb-4 animate-fade-in-delay-1">
-            Empowering leaders to think, evaluate, and scale AI
+            Through the proprietary Readiness Rocket Framework
           </p>
 
           <p className="text-lg text-primary font-medium mb-10 animate-fade-in-delay-1">
-            Only for Businesses
+            Only for Enterprises
           </p>
 
           <Button

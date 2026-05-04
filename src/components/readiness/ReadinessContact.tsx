@@ -11,11 +11,11 @@ const LeadersContact = () => {
       <div className="container mx-auto px-6">
         <div className="diagram-container text-center max-w-3xl mx-auto">
           <h2 className="heading-md mb-6">
-            Want to explore more about the program?
+            Want to explore more?
           </h2>
 
           <p className="text-lg text-muted-foreground mb-8">
-            Write to us at info@digiculum.com
+            Write to us at amit@digiculum.com
         
           </p>
 
