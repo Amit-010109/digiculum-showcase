@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/app",  // 👈 added this
+  // ❌ removed base: "/app" — this was causing Project 1's assets to break
   server: {
     allowedHosts: [
       "smileless-portionless-daina.ngrok-free.dev"
@@ -15,15 +15,11 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
-    // 👇 removed proxy block — not needed, that was for local dev only
-    // in production, Vercel rewrites handle the proxying
   },
-
   plugins: [
     react(),
     mode === "development" && componentTagger()
   ].filter(Boolean),
-
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
