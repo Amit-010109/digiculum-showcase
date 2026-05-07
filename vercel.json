@@ -1,8 +1,6 @@
 {
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/app", "destination": "https://app.digiculum.com" },
+    { "source": "/app/:path*", "destination": "https://app.digiculum.com/:path*" }
   ]
 }

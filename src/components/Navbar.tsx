@@ -4,7 +4,7 @@ import digiLogo from "@/assets/Digiculum-Logo.png";
 
 const navLinks = [
   
-  { label: "App", href: "http://localhost:8080/app"},
+  { label: "App", href: "/app"},
   { label: "Enterprises", href: "/enterprises" },
   { label: "Ecosystem", href: "/ecosystem" },
 ];

@@ -5,6 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: "/app",  // 👈 added this
   server: {
     allowedHosts: [
       "smileless-portionless-daina.ngrok-free.dev"
@@ -14,14 +15,8 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
-
-    proxy: {
-      "/app": {
-        target: "http://localhost:8081",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/app/, ""),
-      },
-    },
+    // 👇 removed proxy block — not needed, that was for local dev only
+    // in production, Vercel rewrites handle the proxying
   },
 
   plugins: [
@@ -33,5 +28,6 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+    dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime"],
   },
 }));

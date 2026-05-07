@@ -75,7 +75,7 @@ const Hero = () => {
 
               <div className="mt-auto">
                 <a
-                  href='https://digiculum-test.vercel.app' target="_blank"
+                  href='/app' target="_blank"
                   className={`btn-primary inline-block ${
                     isMobile ? "text-xs px-4 py-2" : "text-sm px-6 py-2.5"
                   }`}
