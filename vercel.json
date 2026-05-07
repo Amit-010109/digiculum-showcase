@@ -1,6 +1,10 @@
 {
   "rewrites": [
-    { "source": "/app", "destination": "https://app.digiculum.com" },
-    { "source": "/app/:path*", "destination": "https://app.digiculum.com/:path*" }
+    { "source": "/app/assets/:file*", "destination": "https://app.digiculum.com/app/assets/:file*" },
+    { "source": "/app/logo.png", "destination": "https://app.digiculum.com/app/logo.png" },
+    { "source": "/app/favicon.ico", "destination": "https://app.digiculum.com/app/favicon.ico" },
+    { "source": "/app/site.webmanifest", "destination": "https://app.digiculum.com/app/site.webmanifest" },
+    { "source": "/app", "destination": "https://app.digiculum.com/app" },
+    { "source": "/app/:path*", "destination": "https://app.digiculum.com/app/:path*" }
   ]
 }
