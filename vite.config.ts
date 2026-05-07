@@ -14,8 +14,21 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
+
+    proxy: {
+      "/app": {
+        target: "http://localhost:8081",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/app/, ""),
+      },
+    },
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+
+  plugins: [
+    react(),
+    mode === "development" && componentTagger()
+  ].filter(Boolean),
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

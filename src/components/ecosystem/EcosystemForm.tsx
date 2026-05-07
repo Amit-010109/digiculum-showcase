@@ -4,7 +4,6 @@ import {
   User,
   Phone,
   Briefcase,
-  Target,
   Shield,
   Loader2,
 } from "lucide-react";
@@ -17,8 +16,6 @@ const EcosystemForm = () => {
     phone: "",
     occupation: "",
     otherOccupation: "",
-    ecosystem: "",
-    reason: "",
   });
 
   const [captchaVerified, setCaptchaVerified] = useState(false);
@@ -39,21 +36,6 @@ const EcosystemForm = () => {
     "Job Seeker",
     "Entrepreneur",
     "Other",
-  ];
-
-  const ecosystems = [
-    "AI Practitioner",
-    "AI Leader",
-    "AI Consultant",
-    "AI Creative",
-    "AI Compliance",
-    "AI for Finance",
-    "AI for Healthcare",
-    "AI for HR",
-    "AI for Product/Project/Program Managers",
-    "Data and AI Experts",
-    "AI Engineer",
-    "AI for Entrepreneurs",
   ];
 
   const sanitizeInput = (name: string, value: string) => {
@@ -167,32 +149,6 @@ const EcosystemForm = () => {
           delete newErrors.otherOccupation;
         }
         break;
-
-      case "ecosystem":
-        if (!value) {
-          newErrors.ecosystem = "Please select an ecosystem";
-        } else {
-          delete newErrors.ecosystem;
-        }
-        break;
-
-      case "reason":
-        if (!value.trim()) {
-          newErrors.reason = "Please provide a reason for joining";
-        } else if (value.trim().length < 20) {
-          newErrors.reason = "Reason must be at least 20 characters";
-        } else {
-          const wordCount = value
-            .trim()
-            .split(/\s+/)
-            .filter((w) => w).length;
-          if (wordCount > 200) {
-            newErrors.reason = "Reason must be 200 words or less";
-          } else {
-            delete newErrors.reason;
-          }
-        }
-        break;
     }
 
     setErrors(newErrors);
@@ -272,24 +228,6 @@ const EcosystemForm = () => {
       newErrors.otherOccupation = "Occupation must be at least 3 characters";
     }
 
-    if (!formData.ecosystem) {
-      newErrors.ecosystem = "Please select an ecosystem";
-    }
-
-    if (!formData.reason.trim()) {
-      newErrors.reason = "Please provide a reason for joining";
-    } else if (formData.reason.trim().length < 20) {
-      newErrors.reason = "Reason must be at least 20 characters";
-    } else {
-      const wordCount = formData.reason
-        .trim()
-        .split(/\s+/)
-        .filter((w) => w).length;
-      if (wordCount > 200) {
-        newErrors.reason = "Reason must be 200 words or less";
-      }
-    }
-
     if (!captchaVerified) {
       newErrors.captcha = "Please solve the captcha correctly";
     }
@@ -322,8 +260,6 @@ const EcosystemForm = () => {
         formData.occupation === "Other"
           ? formData.otherOccupation
           : formData.occupation,
-      ecosystem: formData.ecosystem,
-      reason: formData.reason,
       status: "Pending Review",
     };
 
@@ -355,8 +291,6 @@ const EcosystemForm = () => {
         phone: "",
         occupation: "",
         otherOccupation: "",
-        ecosystem: "",
-        reason: "",
       });
       setCaptchaAnswer("");
       setCaptchaVerified(false);
@@ -403,12 +337,6 @@ const EcosystemForm = () => {
             Thank you for your interest in joining our ecosystem. Your
             application is under review and we'll get back to you soon.
           </p>
-          {/* <button
-            onClick={() => setSubmitted(false)}
-            className="bg-primary/50 text-white px-6 py-2 rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all"
-          >
-            Submit Another Application
-          </button> */}
         </div>
       </div>
     );
@@ -584,80 +512,6 @@ const EcosystemForm = () => {
                 )}
               </div>
             )}
-
-            {/* Ecosystem Selection */}
-            <div>
-              <label className="flex items-center text-sm font-medium text-gray-200 mb-2">
-                <Target className="w-4 h-4 mr-2" />
-                Select the Ecosystem You Want to Join *
-              </label>
-              <select
-                name="ecosystem"
-                value={formData.ecosystem}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 bg-white/5 rounded-lg text-white focus:outline-none border transition-all ${
-                  errors.ecosystem
-                    ? "border-red-500"
-                    : "border-white/10 focus:border-primary/50"
-                }`}
-              >
-                <option value="" className="bg-primary">
-                  Choose an ecosystem
-                </option>
-                {ecosystems.map((eco) => (
-                  <option key={eco} value={eco} className="bg-black">
-                    {eco}
-                  </option>
-                ))}
-              </select>
-              {errors.ecosystem && (
-                <p className="text-red-400 text-sm mt-1">{errors.ecosystem}</p>
-              )}
-            </div>
-
-            {/* Reason */}
-            <div>
-              <label className="text-sm font-medium text-gray-200 mb-2 block">
-                Why Do You Want to Join the Above Ecosystem? * (Max 200 words)
-              </label>
-              <textarea
-                name="reason"
-                value={formData.reason}
-                onChange={handleChange}
-                rows={5}
-                className={`w-full px-4 py-3 bg-white/5 rounded-lg text-white placeholder-gray-400 focus:outline-none border transition-all resize-none ${
-                  errors.reason
-                    ? "border-red-500"
-                    : "border-white/10 focus:border-primary/50"
-                }`}
-                placeholder="Tell us why you're interested in joining this ecosystem..."
-              />
-              <div className="flex justify-between items-center mt-1">
-                <div className="flex-1">
-                  {errors.reason && (
-                    <p className="text-red-400 text-sm">{errors.reason}</p>
-                  )}
-                </div>
-                <p
-                  className={`text-sm ml-auto ${
-                    formData.reason
-                      .trim()
-                      .split(/\s+/)
-                      .filter((w) => w).length > 200
-                      ? "text-red-400"
-                      : "text-gray-400"
-                  }`}
-                >
-                  {
-                    formData.reason
-                      .trim()
-                      .split(/\s+/)
-                      .filter((w) => w).length
-                  }{" "}
-                  / 200 words
-                </p>
-              </div>
-            </div>
 
             {/* Captcha */}
             <div className="bg-white/5 border border-white/10 rounded-lg p-6">

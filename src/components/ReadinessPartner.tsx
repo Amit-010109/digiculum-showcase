@@ -8,7 +8,7 @@ const ReadinessPartner = () => {
                     </h2>
 
                     <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-12">
-                        <span className="text-primary">AI</span> Readiness Partner
+                        <span className="text-primary">AI</span> Advisory Partner
                     </h2>
 
 

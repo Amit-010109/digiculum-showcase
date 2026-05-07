@@ -15,9 +15,10 @@ interface BrochureDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onSubmit?: (data: { name: string; email: string; phone: string }) => void;
+  sheetName: string,
 }
 
-const BrochureDialog = ({ open, onOpenChange, onSubmit }: BrochureDialogProps) => {
+const BrochureDialog = ({ open, onOpenChange, onSubmit, sheetName }: BrochureDialogProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -57,6 +58,7 @@ const BrochureDialog = ({ open, onOpenChange, onSubmit }: BrochureDialogProps) =
           email: formData.email,
           phone: formData.phone,
           timestamp: new Date().toISOString(),
+          sheetName: sheetName,
         }),
       }).catch(err => {
         // Log error but don't block the user experience

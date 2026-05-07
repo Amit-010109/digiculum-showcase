@@ -31,7 +31,7 @@ const Hero = () => {
         {/* Main Heading */}
   <div className="text-center mb-8">
     <h1 className="text-white text-3xl md:text-5xl font-bold">
-      Your AI Reskilling & Readiness Partner
+      Your AI Reskilling & Advisory Partner
     </h1>
   </div>
 
@@ -55,27 +55,27 @@ const Hero = () => {
               </p>
 
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">
-                AI Practitioner
+                AI Reskilling
               </h2>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-3 md:mb-4">
-                Bootcamp
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-3 md:mb-4 ">
+                App
               </h2>
-              <div className="flex gap-1.5">
+              {/* <div className="flex gap-1.5">
                 <span className="text-white italic text-xs md:text-sm mb-2 md:mb-4">
                   Start Date:
                 </span>
                 <span className="text-white font-bold italic text-xs md:text-sm mb-2 md:mb-4">
                   9th Mar, 2026
                 </span>
-              </div>
-
-              <p className="text-foreground/60 text-xs md:text-sm mb-4 md:mb-6">
-                Cohort-based
+              </div> */}
+            <div className="h-2 md:h-4" />
+              <p className="text-foreground/60 text-xs md:text-sm mb-4 md:mb-2">
+                Personalized-roadmap
               </p>
 
               <div className="mt-auto">
                 <a
-                  href='/individuals'
+                  href='https://digiculum-test.vercel.app' target="_blank"
                   className={`btn-primary inline-block ${
                     isMobile ? "text-xs px-4 py-2" : "text-sm px-6 py-2.5"
                   }`}
@@ -102,7 +102,7 @@ const Hero = () => {
                 AI Leadership
               </h2>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-3 md:mb-4">
-                Readiness Program
+                 Program
               </h2>
 
               <div className="h-2 md:h-4" />
@@ -113,7 +113,7 @@ const Hero = () => {
 
               <div className="mt-auto">
                 <a
-                  href="/leaders"
+                  href="/enterprises"
                   className={`btn-primary inline-block ${
                     isMobile ? "text-xs px-4 py-2" : "text-sm px-6 py-2.5"
                   }`}
@@ -131,25 +131,25 @@ const Hero = () => {
                 </span>
               </div>
               <p className="text-foreground/70 italic mb-2 md:mb-4 text-xs md:text-sm">
-                Early Career, Mid-Management, and Executives
+                Early Career, Mid-Management, and SMEs
               </p>
 
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">
                 AI Competence
               </h2>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-3 md:mb-4">
-                Evaluation
+                Development Program 
               </h2>
 
               <div className="h-2 md:h-4" />
 
               <p className="text-foreground/60 text-xs md:text-sm mb-4 md:mb-6">
-                Action-oriented
+                Value-driven
               </p>
 
               <div className="mt-auto">
                 <a
-                  href="/leaders"
+                  href="/enterprises"
                   className={`btn-primary inline-block ${
                     isMobile ? "text-xs px-4 py-2" : "text-sm px-6 py-2.5"
                   }`}
@@ -171,10 +171,10 @@ const Hero = () => {
               </p>
 
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">
-                AI Readiness
+                AI Advisory
               </h2>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-3 md:mb-4">
-                Evaluation
+                Services
               </h2>
 
               <div className="h-2 md:h-4" />
@@ -185,7 +185,7 @@ const Hero = () => {
 
               <div className="mt-auto">
                 <a
-                  href="/readiness"
+                  href="/enterprises"
                   className={`btn-primary inline-block ${
                     isMobile ? "text-xs px-4 py-2" : "text-sm px-6 py-2.5"
                   }`}

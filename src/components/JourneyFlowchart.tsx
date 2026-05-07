@@ -346,7 +346,7 @@
 
 // export default JourneyFlowchart;
 
-import AIReskilling from "@/assets/AI-reskill-updated.png"
+import AIReskilling from "@/assets/AI_Reskilling_Journey.png"
 
 const JourneyFlowchart = () => {
   return (

@@ -8,6 +8,7 @@ import Leaders from "./pages/Leaders";
 import Individuals from "./pages/Individuals";
 import Readiness from "./pages/Readiness"
 import Courses from "./pages/Courses";
+import Enterprises from "./pages/Enterprises";
 import Ecosystem from "./pages/Ecosystem";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import CookiePolicy from "./components/CookiePolicy";
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/individuals" element={<Individuals />} />
           <Route path="/readiness" element={<Readiness />} />
           <Route path="/reskilling" element={<Courses />} />
+          <Route path="/enterprises" element={<Enterprises />} />
           <Route path="/ecosystem" element={<Ecosystem />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/cookies" element={<CookiePolicy />} />

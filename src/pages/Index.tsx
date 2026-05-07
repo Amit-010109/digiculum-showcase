@@ -20,8 +20,6 @@ const Index = () => {
       <SectionSeparator />
       <ReadinessPartner />
       <SectionSeparator />
-      <RedirectAssessment />
-      <SectionSeparator />
       <Fundamentals />
       <SectionSeparator />
       <FAQ />

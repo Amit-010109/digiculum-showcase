@@ -10,26 +10,18 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a 
-                  href="/individuals"
+                  href="https://digiculum-test.vercel.app"
                   className="text-foreground hover:text-primary transition-colors"
                 >
-                  Individuals
+                  App
                 </a>
               </li>
               <li>
                 <a
-                  href="/leaders"
+                  href="/enterprises"
                   className="text-foreground hover:text-primary transition-colors"
                 >
-                  Leaders
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/courses"
-                  className="text-foreground hover:text-primary transition-colors"
-                >
-                  Courses
+                  Enterprises
                 </a>
               </li>
               <li>
