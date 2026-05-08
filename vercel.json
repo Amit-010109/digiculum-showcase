@@ -5,6 +5,7 @@
     { "source": "/app/favicon.ico", "destination": "https://app.digiculum.com/app/favicon.ico" },
     { "source": "/app/site.webmanifest", "destination": "https://app.digiculum.com/app/site.webmanifest" },
     { "source": "/app", "destination": "https://app.digiculum.com/app" },
-    { "source": "/app/:path*", "destination": "https://app.digiculum.com/app/:path*" }
+    { "source": "/app/:path*", "destination": "https://app.digiculum.com/app/:path*" },
+    { "source": "/(.*)",               "destination": "/index.html" }
   ]
 }
