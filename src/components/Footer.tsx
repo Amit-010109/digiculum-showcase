@@ -10,7 +10,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a 
-                  href="https://digiculum-test.vercel.app"
+                  href="/app"
                   className="text-foreground hover:text-primary transition-colors"
                 >
                   App

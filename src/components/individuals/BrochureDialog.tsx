@@ -15,7 +15,7 @@ interface BrochureDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onSubmit?: (data: { name: string; email: string; phone: string }) => void;
-  sheetName: string,
+  sheetName: string;
 }
 
 const BrochureDialog = ({ open, onOpenChange, onSubmit, sheetName }: BrochureDialogProps) => {
@@ -32,24 +32,20 @@ const BrochureDialog = ({ open, onOpenChange, onSubmit, sheetName }: BrochureDia
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
-    
-    // Validate phone number
-    const phoneRegex = /^\d{10}$/;
+
+    const phoneRegex = /^\d{7,15}$/;
     if (!phoneRegex.test(formData.phone)) {
-      setError("Phone number must be exactly 10 digits");
+      setError("Please enter a valid phone number (7–15 digits)");
       setIsSubmitting(false);
       return;
     }
-    
+
     try {
-      // Replace this URL with your Google Apps Script Web App URL
       const GOOGLE_SCRIPT_URL = import.meta.env.VITE_BROCHURE_URL;
-      
-      // Fire and forget - send data to Google Sheets in the background
-      // Don't await the response, just trigger it
+
       fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
-        mode: "no-cors", // Important for Google Apps Script
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
@@ -61,32 +57,21 @@ const BrochureDialog = ({ open, onOpenChange, onSubmit, sheetName }: BrochureDia
           sheetName: sheetName,
         }),
       }).catch(err => {
-        // Log error but don't block the user experience
         console.error("Error submitting to Google Sheets:", err);
       });
 
-      // Immediately proceed with the download and UI updates
-      // without waiting for Google Sheets response
-      
-      // Call the onSubmit handler if provided (triggers PDF download)
       if (onSubmit) {
         onSubmit(formData);
       }
-      
-      // Reset form
+
       setFormData({ name: "", email: "", phone: "" });
-      
-      // Close dialog
       onOpenChange(false);
-      
-      // Show toast notification
+
       setShowToast(true);
-      
-      // Hide toast after 3 seconds
       setTimeout(() => {
         setShowToast(false);
       }, 3000);
-      
+
     } catch (err) {
       console.error("Error in form submission:", err);
       setError("Failed to submit form. Please try again.");
@@ -96,18 +81,15 @@ const BrochureDialog = ({ open, onOpenChange, onSubmit, sheetName }: BrochureDia
   };
 
   const handleChange = (field: string, value: string) => {
-    // For phone field, only allow numbers
     if (field === "phone") {
       const numericValue = value.replace(/\D/g, "");
-      // Limit to 10 digits
-      if (numericValue.length <= 10) {
+      if (numericValue.length <= 15) {
         setFormData(prev => ({ ...prev, [field]: numericValue }));
       }
     } else {
       setFormData(prev => ({ ...prev, [field]: value }));
     }
-    
-    // Clear error when user starts typing
+
     if (error) setError(null);
   };
 
@@ -121,7 +103,7 @@ const BrochureDialog = ({ open, onOpenChange, onSubmit, sheetName }: BrochureDia
               Please provide your details to download the AI Practitioner Bootcamp brochure.
             </DialogDescription>
           </DialogHeader>
-          
+
           <form onSubmit={handleSubmit} className="space-y-5 mt-4">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-sm font-medium">
@@ -167,10 +149,10 @@ const BrochureDialog = ({ open, onOpenChange, onSubmit, sheetName }: BrochureDia
                 required
                 disabled={isSubmitting}
                 className="w-full"
-                maxLength={10}
+                maxLength={15}
               />
               <p className="text-xs text-muted-foreground">
-                Enter 10-digit phone number (numbers only)
+                Enter your phone number (numbers only)
               </p>
             </div>
 
@@ -190,8 +172,8 @@ const BrochureDialog = ({ open, onOpenChange, onSubmit, sheetName }: BrochureDia
               >
                 Cancel
               </Button>
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="flex-1 bg-primary hover:bg-primary/90"
                 disabled={isSubmitting}
               >
@@ -209,7 +191,6 @@ const BrochureDialog = ({ open, onOpenChange, onSubmit, sheetName }: BrochureDia
         </DialogContent>
       </Dialog>
 
-      {/* Toast Notification */}
       {showToast && (
         <div className="fixed bottom-6 right-6 z-50 animate-in slide-in-from-bottom-5 duration-300">
           <div className="bg-primary text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3 max-w-md">
