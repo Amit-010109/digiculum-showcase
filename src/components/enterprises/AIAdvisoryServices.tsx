@@ -45,45 +45,40 @@ const AIAdvisoryServices = () => {
     email: string;
     phone: string;
   }) => {
-    // Here you can send data to Google Sheets or your backend
     console.log("User data:", data);
-
-    // Download the PDF after form submission
     const link = document.createElement("a");
     link.href = brochurePdf;
     link.download = "Enterprise-Brochure.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-
-    // Close the dialog
     setBrochureOpen(false);
   };
 
   return (
-    <section id="ai-advisory" className="py-20 bg-black">
+    <section id="ai-advisory" className="py-16 md:py-20 bg-black">
       <div className="container mx-auto px-6">
-        <h2 className="heading-lg mb-10 text-white">
+        {/* Responsive Section Heading */}
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-10 text-white tracking-tight">
           AI Advisory Services
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-10 md:mb-12">
           {AIAdvisoryData.map((course, index) => (
             <div
               key={index}
-              className="relative h-auto min-h-[200px] flex flex-col rounded-xl p-6 
+              className="relative h-auto min-h-[180px] md:min-h-[200px] flex flex-col rounded-xl p-6 
                          bg-white/5 border border-white/10 hover:border-primary/50 
                          hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 group"
             >
-              {/* Added pt-4 to push text slightly down, flex-grow/justify-center to balance vertical alignment */}
-              <div className="flex flex-col flex-grow justify-center pt-4">
-                {/* Increased title to text-2xl and adjusted line height (leading-tight) to fill space */}
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors duration-300 leading-tight">
+              <div className="flex flex-col flex-grow justify-center pt-2 md:pt-4">
+                {/* Responsive Card Title */}
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 group-hover:text-primary transition-colors duration-300 leading-tight">
                   {course.title}
                 </h3>
 
-                {/* Increased description to text-base for better proportion against the larger card */}
-                <p className="text-base font-medium text-white/70 leading-relaxed">
+                {/* Responsive Card Description */}
+                <p className="text-sm md:text-base font-medium text-white/70 leading-relaxed">
                   {course.description}
                 </p>
               </div>
@@ -91,10 +86,10 @@ const AIAdvisoryServices = () => {
           ))}
         </div>
 
-        {/* Global Download Brochure Button */}
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-8 md:mt-10">
+          {/* Responsive Button */}
           <button
-            className="px-8 py-3 rounded-full text-base font-medium transition-all hover:scale-105 bg-primary text-white shadow-lg shadow-primary/20"
+            className="px-6 py-3 md:px-8 md:py-3 rounded-full text-sm md:text-base font-medium transition-all hover:scale-105 bg-primary text-white shadow-lg shadow-primary/20"
             onClick={() => setBrochureOpen(true)}
           >
             Download Brochure

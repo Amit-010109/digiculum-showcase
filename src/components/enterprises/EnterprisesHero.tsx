@@ -25,18 +25,13 @@ const EnterprisesHero = () => {
     email: string;
     phone: string;
   }) => {
-    // Here you can send data to Google Sheets or your backend
     console.log("User data:", data);
-
-    // Download the PDF after form submission
     const link = document.createElement("a");
     link.href = brochurePdf;
     link.download = "Enterprise-Brochure.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-
-    // Close the dialog
     setBrochureOpen(false);
   };
 
@@ -56,19 +51,21 @@ const EnterprisesHero = () => {
       <div className="relative z-10 w-full pl-6 md:pl-16 lg:pl-24">
         <div className="max-w-3xl text-white">
 
-          <h1 className="heading-xl mb-6 text-white">
+          {/* Responsive Hero Heading */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white tracking-tight">
             Reskilling and Advisory
           </h1>
 
-          <p className="text-xl text-white/80 mb-8">
+          {/* Responsive Hero Subtext */}
+          <p className="text-base md:text-lg lg:text-xl text-white/80 mb-8 leading-relaxed">
             For enterprises at all levels of AI maturity: Discovery, Mobilization, Experimentation, Pre-Scaling, Scaled Adoption
           </p>
 
           <div className="flex flex-wrap gap-4">
             <Button
               size={isMobile ? "sm" : "lg"}
-              className={`bg-primary hover:bg-primary/90 ${
-                !isMobile ? "text-base px-8 py-6" : ""
+              className={`bg-primary hover:bg-primary/90 transition-all ${
+                !isMobile ? "text-base px-8 py-6" : "text-sm px-6 py-4"
               }`}
               onClick={() => setBrochureOpen(true)}
             >

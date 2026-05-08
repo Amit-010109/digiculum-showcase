@@ -7,6 +7,7 @@ import AILeadershipProgram from "@/components/enterprises/AILeadershipProgram";
 import AIComepetenceDevelopmentProgram from "@/components/enterprises/AICompetenceDevelopmentProgram";
 import StandaloneReskillingOfferings from "@/components/enterprises/StandaloneReskillingOfferings";
 import AIAdvisoryServices from "@/components/enterprises/AIAdvisoryServices";
+import EnterpriseCoreOfferings from "@/components/enterprises/EnterpriseCoreOfferings";
 
 const Enterprises = () => {
   return (
@@ -14,9 +15,7 @@ const Enterprises = () => {
       <Navbar />
       <EnterprisesHero />
       <SectionSeparator />
-      <AILeadershipProgram />
-      <SectionSeparator />
-      <AIComepetenceDevelopmentProgram />
+      <EnterpriseCoreOfferings />
       <SectionSeparator />
       <StandaloneReskillingOfferings />
       <SectionSeparator />
